@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+{% if nodes|length == 0 %}
+    <p>No node data available. Click "Update Nodes" to fetch information.</p>
+{% else %}
+    <table class="nodes-table">
+        <tr>
+            <th>Long Name</th>
+            <th>Role</th>
+            <th>Connection</th>
+            <th>Last Heard</th>
+            <th>Encryption</th>
+            <th>SNR</th>
+            <th>RSSI</th>
+            <th>Battery</th>
+            <th>Uptime</th>
+        </tr>
+        {% for n in nodes %}
+        <tr>
+            <td>{{ n.long_name or '' }}</td>
+            <td>{{ n.role or '' }}</td>
+            <td>{{ n.connection or '' }}</td>
+            <td>{{ n.last_heard or '' }}</td>
+            <td>{{ n.encryption or '' }}</td>
+            <td>{{ n.snr or '' }}</td>
+            <td>{{ n.rssi or '' }}</td>
+            <td>{{ n.battery or '' }}</td>
+            <td>{{ n.uptime or '' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<form method="get" action="{{ url_for('update_nodes') }}">
+    <button type="submit">Update Nodes</button>
+</form>
+{% endblock %}

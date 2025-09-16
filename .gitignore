@@ -1,0 +1,16 @@
+# Ignore local SQLite database(s)
+*.db
+
+# Ignore log files and log directories
+logs/
+*.log
+
+# Ignore sensitive configuration (update the file name if yours differs)
+config.json
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# OS‑specific clutter (macOS, etc.)
+.DS_Store

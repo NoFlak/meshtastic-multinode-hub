@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Messages</h2>
+<form method="post" class="message-form">
+    <input type="text" name="message" placeholder="Type your message here" class="message-input" required>
+    <button type="submit">Send</button>
+</form>
+
+<h3>Message History</h3>
+<table class="messages-table">
+    <tr>
+        <th>Time</th>
+        <th>Sender</th>
+        <th>Recipient</th>
+        <th>Message</th>
+    </tr>
+    {% for m in messages %}
+    <tr>
+        <td>{{ m.timestamp }}</td>
+        <td>{{ m.sender }}</td>
+        <td>{{ m.recipient }}</td>
+        <td>{{ m.message }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
