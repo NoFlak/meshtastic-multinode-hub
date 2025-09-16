@@ -80,6 +80,3 @@ This project is licensed under the [MIT License](LICENSE). You're free to use, m
 ## Acknowledgements
 
 Built on the [Meshtastic project](https://meshtastic.org/), this app provides a streamlined administrative front‑end for multi‑node deployments.
-```
-
-Let me know if you'd like to add a diagram, screenshot section, or GitHub badges for build status, license, or versioning.
