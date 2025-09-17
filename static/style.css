@@ -92,3 +92,9 @@ table th {
     outline: none;
     border-color: #666;
 }
+
+/* Dashboard UI additions */
+#app { padding: 20px }
+.controls { margin-bottom: 12px }
+.candidate { padding: 6px; border-bottom: 1px solid #444 }
+#output { background:#0b0b0b; padding:10px; max-height:300px; overflow:auto; color:#ddd }

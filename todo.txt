@@ -1,0 +1,20 @@
+Project TODO (shared)
+Alias: noflak
+Version format: x.x.xxxx (major.minor.specific)
+
+How to add an entry:
+- Prefix with version when you land a change: e.g. v1.0.0002 - 2025-09-17 - noflak
+- Describe the change in one bullet list and include files touched.
+- For work-in-progress items, add `(WIP)` after the version and include task owner.
+
+Open items:
+- v0.1.0002 (WIP) - 2025-09-16 - noflak
+  - Add DB rollback/undo for auto-commit (snapshot already implemented; add tests and CLI runner to exercise restore). Files: `main.py`, `tools/db_dump.py`, `tests/`.
+
+- v0.1.0003 (planned) - 2025-09-17 - noflak
+  - Web UI integration: expose discovery, candidate list, validation, commit/undo actions via FastAPI endpoints and a simple SPA template. Files: `main.py`, `templates/dashboard.html`, `static/main.js`.
+
+Guidelines:
+- Use `noflak` as author alias for repository-level entries.
+- Versioning: bump minor or specific numbers for small changes; bump major for breaking changes.
+- Add tests for every behavioral change and run them locally before pushing.

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>Node Info</h2>
+{% if not node %}
+  <p>Node not found.</p>
+{% else %}
+  <table>
+    <tr><th>Node ID</th><td>{{ node.node_id }}</td></tr>
+    <tr><th>Long Name</th><td>{{ node.long_name }}</td></tr>
+    <tr><th>Role</th><td>{{ node.role }}</td></tr>
+    <tr><th>Connection</th><td>{{ node.connection }}</td></tr>
+    <tr><th>Last Heard</th><td>{{ node.last_heard }}</td></tr>
+    <tr><th>RSSI</th><td>{{ node.rssi }}</td></tr>
+    <tr><th>SNR</th><td>{{ node.snr }}</td></tr>
+    <tr><th>Battery</th><td>{{ node.battery }}</td></tr>
+    <tr><th>GPS Lat</th><td>{{ node.gps_lat }}</td></tr>
+    <tr><th>GPS Lon</th><td>{{ node.gps_lon }}</td></tr>
+    <tr><th>GPS Alt</th><td>{{ node.gps_alt }}</td></tr>
+    <tr><th>Last Updated</th><td>{{ node.last_updated }}</td></tr>
+  </table>
+  <h3>Environment</h3>
+  {% if node.env %}
+    <pre>{{ node.env | tojson(indent=2) }}</pre>
+  {% else %}
+    <p>No environmental data recorded.</p>
+  {% endif %}
+{% endif %}
+{% endblock %}

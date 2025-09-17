@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Meshtastic Support Dashboard (UI)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Meshtastic Support Dashboard</h1>
+    <div class="controls">
+      <button id="scanBtn">Discover Nodes</button>
+      <button id="commitBtn">Commit Allocation (dry-run by default)</button>
+      <button id="undoBtn">Undo Last Commit</button>
+    </div>
+    <div id="status"></div>
+    <h2>Candidates</h2>
+    <div id="candidates"></div>
+    <h2>Output</h2>
+    <pre id="output"></pre>
+  </div>
+  <script src="/static/ui.js"></script>
+</body>
+</html>

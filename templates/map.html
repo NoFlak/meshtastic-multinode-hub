@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-sA+e2x6wW0c0kGv7C0u0mQ4B5Gq5u5y0eFvM6bM5p7E=" crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<style>
+  #map { height: 80vh; width: 100%; }
+  .map-controls { margin: 8px 0; }
+  .map-controls label { margin-right: 8px; }
+</style>
+{% endblock %}
+
+{% block body %}
+<h2>Node Map</h2>
+<div class="map-controls">
+  <label>Poll interval (s): <input id="pollInterval" type="number" value="15" min="5" max="300"/></label>
+  <button id="pauseBtn">Pause</button>
+  <button id="resumeBtn" disabled>Resume</button>
+</div>
+<div id="map-legend" style="margin-bottom:8px;">
+  <strong>Legend:</strong>
+  <span style="display:inline-block;width:12px;height:12px;background:#2ecc71;margin-left:8px;border-radius:6px;"></span> Battery high
+  <span style="display:inline-block;width:12px;height:12px;background:#f1c40f;margin-left:8px;border-radius:6px;"></span> Battery medium
+  <span style="display:inline-block;width:12px;height:12px;background:#e74c3c;margin-left:8px;border-radius:6px;"></span> Battery low
+</div>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="/static/map.js"></script>
+{% endblock %}

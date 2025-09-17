@@ -21,4 +21,11 @@ else:
     cur.execute('SELECT * FROM logs ORDER BY timestamp DESC')
     for r in cur.fetchall():
         print(dict(r))
+    print('\nCommit history:')
+    try:
+        cur.execute('SELECT * FROM commit_history ORDER BY id DESC')
+        for r in cur.fetchall():
+            print(dict(r))
+    except Exception:
+        print('No commit_history table present')
     conn.close()
