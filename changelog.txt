@@ -2,7 +2,7 @@ Meshtastic Support App - changelog
 Project alias: noflak
 Version format: x.x.xxxx (major.minor.specific)
 
-v1.0.0001 - 2025-09-16 - noflak
+v0.1.0001 - 2025-09-16 - noflak
 - Initial migration: replaced FastAPI `@app.on_event('startup')` with `lifespan` context manager.
 - Added CLI helpers and `run_cli_command()` fallback to `python -m meshtastic` when `meshtastic` binary not on PATH.
 - Implemented BLE and COM scanning helpers (`scan_ble_devices`, `scan_com_ports`) with retry/backoff.
@@ -13,7 +13,7 @@ v1.0.0001 - 2025-09-16 - noflak
 - Added DB `commit_history` support, snapshot-before-commit, and `undo_last_commit()` CLI.
 - Added unit tests for `validate_candidate()`.
 
-v1.0.0002 - 2025-09-16 - iteration
+v0.2.000 - 2025-09-16 - iteration
 - Added optional Redis cache adapter for `/api/nodes/positions` with detection for `redis.asyncio` (async) and sync `redis` fallback.
 - Added unit tests to validate Redis behavior and fallback to in-memory cache on failures.
 - Introduced `tools/check_device.py` — a non-destructive helper that runs `meshtastic --info` and prints compact or JSON summaries. Supports `--port`, `--ble`, `--json`, `--timeout`, `--retries`, and `--try-ble`.
@@ -30,3 +30,6 @@ Next steps:
 Notes:
 - Rollback mechanism stores snapshots in DB `commit_history` as JSON. Consider stronger transactional approach if concurrent writes expected.
 - Future: Web UI integration (discover, validate, commit, rollback) planned.
+
+# v0.2.0000 — 2025-09-16(noflak)
+
