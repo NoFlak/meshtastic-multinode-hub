@@ -14,33 +14,38 @@ This project provides an administrative web interface for managing a small netwo
 
 ## Installation
 
-1. Clone this repository or download the source files to your Raspberry Pi or server:
+1. Clone this repository or download the source files to your Raspberry Pi or server:
 
-    ```bash
+    ```
     git clone https://github.com/yourusername/multi-node-support-app.git
-    cd multi-node-support-app/meshtastic_support_app
+    cd multi-node-support-app
     ```
 
-2. Install Python dependencies. This project relies on [FastAPI](https://fastapi.tiangolo.com/) and [uvicorn](https://www.uvicorn.org/) for the web server and [Jinja2](https://palletsprojects.com/p/jinja/) for templating. You can install them via pip:
+2. (Optional) Create and activate a virtual environment to isolate dependencies.
 
-    ```bash
-    pip install fastapi uvicorn jinja2
+    ```
+    python -m venv .venv
+    # Windows
+    .venv\Scripts\activate
+    # Linux / macOS
+    source .venv/bin/activate
     ```
 
-   If you prefer to manage dependencies explicitly, see the included `requirements.txt` file.
+3. Install the Python dependencies listed in `requirements.txt`:
 
-3. Set up the configuration. The file `config.json` stores the admin username and a hashed password. By default it uses the username `admin` with an empty password. Update it with a secure hashed password before deploying in production.
-
-4. Start the server using uvicorn:
-
-    ```bash
-    uvicorn meshtastic_support_app.main:app --host 0.0.0.0 --port 8000
+    ```
+    python -m pip install -r requirements.txt
     ```
 
-   The app will be available at `http://<server-ip>:8000`. You can change the port as desired.
+4. Start the FastAPI server from the project root. Using the module form ensures Python can locate the `meshtastic_support_app` package even if `uvicorn` is not on your PATH:
+
+    ```
+    python -m uvicorn meshtastic_support_app.main:app --host 0.0.0.0 --port 8000
+    ```
+
+   The app will be available at `http://<server-ip>:8000`. You can change the port as desired. If you prefer the `uvicorn` CLI directly, run it from the project root so the package remains importable.
 
 5. Log in with your configured credentials and explore the dashboard, messages and logs. Use the **Update Nodes** button on the dashboard to fetch current node status via the Meshtastic CLI.
-
 ## Usage
 
 * **Dashboard** – Displays all known nodes with their latest metrics. Click **Update Nodes** to refresh. Nodes are stored in a local SQLite database.

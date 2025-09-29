@@ -16,3 +16,6 @@ __pycache__/
 .DS_Store
 .venv
 RETURN_POINT.md
+# Temporary helper scripts
+__check_import.py
+__update_readme.py
